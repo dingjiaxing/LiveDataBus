@@ -1,4 +1,4 @@
-# SimpleLiveDataBus
+# LiveDataBus
 利用LivaData来实现的数据传递的简单例子,可用来替换EventBus,该例子实现较为简单，容易理解其原理，有以下优点
 
 ## LiveData优点
