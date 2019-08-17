@@ -8,6 +8,9 @@ import android.widget.Toast;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 
+import com.jackting.lib.livedatabus.LiveDataBus;
+import com.jackting.lib.livedatabus.LiveDataBusBeta;
+
 public class MainActivity extends FragmentActivity {
 
     @Override
@@ -23,7 +26,7 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 //利用LiveDataBusBeta发送一个消息
-                LiveDataBus.get().with("key_forever")
+                LiveDataBusBeta.get().with("key_forever")
                         .setValue("hello jack");
             }
         });
@@ -38,8 +41,10 @@ public class MainActivity extends FragmentActivity {
         findViewById(R.id.btn_send_to_second).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                LiveDataBusBeta.get().with("key_to_second")
+//                        .setValue("hello second");
                 LiveDataBus.get().with("key_to_second")
-                        .setValue("hello second");
+                        .postValue("hello second");
             }
         });
 
@@ -47,7 +52,7 @@ public class MainActivity extends FragmentActivity {
 
     void initData(){
         //利用LiveDataBus接收数据
-        LiveDataBus.get()
+        LiveDataBusBeta.get()
                 .with("key_forever",String.class)
                 .observe(this, new Observer<String>() {
                     @Override
@@ -56,7 +61,7 @@ public class MainActivity extends FragmentActivity {
                     }
                 });
 
-        LiveDataBus.get()
+        LiveDataBusBeta.get()
                 .with("key_msg_b",String.class)
                 .observe(this, new Observer<String>() {
                     @Override

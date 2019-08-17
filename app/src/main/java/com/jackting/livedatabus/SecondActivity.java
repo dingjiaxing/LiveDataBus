@@ -8,6 +8,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 
+import com.jackting.lib.livedatabus.LiveDataBus;
+import com.jackting.lib.livedatabus.LiveDataBusBeta;
+
 public class SecondActivity extends FragmentActivity {
 
     @Override
@@ -23,7 +26,7 @@ public class SecondActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 //send msg a to SecondActivity
-                LiveDataBus.get()
+                LiveDataBusBeta.get()
                         .with("key_msg_a")
                         .setValue("msg a");
             }
@@ -32,7 +35,7 @@ public class SecondActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 //send msg a to MainActivity
-                LiveDataBus.get()
+                LiveDataBusBeta.get()
                         .with("key_msg_b")
                         .setValue("msg b");
             }
@@ -45,7 +48,7 @@ public class SecondActivity extends FragmentActivity {
                     @Override
                     public void run() {
                         //postValue子线程中可执行方法，setValue需要在UI线程中执行
-                        LiveDataBus.get()
+                        LiveDataBusBeta.get()
                                 .with("key_msg_c")
                                 .postValue("msg c");
                     }
@@ -55,7 +58,7 @@ public class SecondActivity extends FragmentActivity {
     }
 
     void initData(){
-        LiveDataBus.get()
+        LiveDataBusBeta.get()
                 .with("key_msg_a",String.class)
                 .observe(this, new Observer<String>() {
                     @Override
@@ -64,7 +67,7 @@ public class SecondActivity extends FragmentActivity {
                     }
                 });
 
-        LiveDataBus.get()
+        LiveDataBusBeta.get()
                 .with("key_msg_c",String.class)
                 .observe(this, new Observer<String>() {
                     @Override

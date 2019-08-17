@@ -1,4 +1,4 @@
-package com.jackting.livedatabus;
+package com.jackting.lib.livedatabus;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -8,18 +8,18 @@ import java.util.Map;
 /**
  * 总线的管理类，用map来存储多个LivaData数据
  */
-public class LiveDataBus {
+public class LiveDataBusBeta {
     private  Map<String, MutableLiveData<Object>> bus;
 
-    private LiveDataBus(){
+    private LiveDataBusBeta(){
         bus = new HashMap<>();
     }
 
     private static class SingleHolder{
-        private static final LiveDataBus DATA_BUS = new LiveDataBus();
+        private static final LiveDataBusBeta DATA_BUS = new LiveDataBusBeta();
     }
 
-    public static LiveDataBus get(){
+    public static LiveDataBusBeta get(){
         return SingleHolder.DATA_BUS;
     }
 
