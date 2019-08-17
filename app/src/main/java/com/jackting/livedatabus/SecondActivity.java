@@ -44,6 +44,7 @@ public class SecondActivity extends FragmentActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        //postValue子线程中可执行方法，setValue需要在UI线程中执行
                         LiveDataBus.get()
                                 .with("key_msg_c")
                                 .postValue("msg c");
