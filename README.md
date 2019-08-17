@@ -11,5 +11,8 @@ UI和实时数据保持一直|因为LiveData采用的是观察者模式，这样
 实时数据刷勋|当组件处于活跃状态或者从不活跃状态到活跃状态时总是能收到最新的数据
 解决Configuration Change问题|当屏幕发生旋转或者被回收再次启动，立刻就能收到最新的数据
 
+## 入门文档
+* [android事件通信方案对比与LiveDataBus详解](https://blog.csdn.net/qq_23081779/article/details/99693939)
+
 ## 更完善的成熟用法
 [LiveEventBus](https://github.com/JeremyLiao/LiveEventBus)
